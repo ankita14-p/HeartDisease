@@ -5,7 +5,7 @@ import joblib
 # Load full pipelines
 model = joblib.load("hybrid_model.pkl")
 
-st.title("Heart Disease Prediction App")
+st.title("Heart Disease Prediction")
 st.markdown("""
 ### Feature Descriptions
 - **age**: Age of the patient (in years)  
