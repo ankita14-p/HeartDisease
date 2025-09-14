@@ -22,7 +22,6 @@ st.markdown("""
 - **ca**: Number of major vessels (0–3) colored by fluoroscopy  
 - **thal**: Thalassemia (1 = normal, 2 = fixed defect, 3 = reversible defect)  
 """)
-# Use the same raw feature set that you passed to the pipeline during training
 raw_features = ["age", "sex", "cp", "trestbps", "chol", "fbs",
                 "restecg", "thalach", "exang", "oldpeak", "slope",
                 "ca", "thal"]
@@ -31,13 +30,11 @@ st.sidebar.header("Enter Patient Details")
 user_input = {}
 for col in raw_features:
     if col == "oldpeak":
-        # float input
         user_input[col] = st.sidebar.number_input(f"{col}", value=0.0, format="%.1f")
     else:
-        # integer input
         user_input[col] = st.sidebar.number_input(f"{col}", value=0, step=1)
 
-# Convert to DataFrame
+# Converting to DataFrame
 input_data = pd.DataFrame([user_input], columns=raw_features)
 
 # Prediction
